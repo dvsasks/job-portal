@@ -51,7 +51,7 @@ const ApplyJobDrawer = ({
   }
 
   return (
-    <Drawer open={applied ? false : true}>
+    <Drawer>
       <DrawerTrigger asChild>
         <Button
           variant={applied ? "destructive" : variant}
