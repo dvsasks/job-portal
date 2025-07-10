@@ -12,6 +12,7 @@ import AuthProvider from "./components/features/AuthProvider";
 import JobListings from "./pages/JobListings";
 import PostJob from "./pages/PostJob";
 import Job from "./pages/Job";
+import SavedJobs from "./pages/SavedJobs";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,6 +53,14 @@ function App() {
           element: (
             <AuthProvider>
               <Job />
+            </AuthProvider>
+          ),
+        },
+        {
+          path: "/saved-jobs",
+          element: (
+            <AuthProvider>
+              <SavedJobs />
             </AuthProvider>
           ),
         },

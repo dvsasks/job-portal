@@ -60,6 +60,17 @@ export const saveJob = async (token, { saved, jobId }) => {
   if (error) throw new Error(error.message);
   return data;
 };
+export async function getSavedJobs(token, { userId }) {
+  const supabase = await supabaseClient(token);
+  const { data, error } = await supabase
+    .from("saved_applications")
+    .select("job:jobs(*)")
+    .eq("user_id", userId);
+  console.log(error);
+  console.log(data);
+  if (error) throw new Error("error occured while fetching saved jobs ");
+  return data;
+}
 
 const createJob = async () => {
   if (!session) return; // wait for session to load

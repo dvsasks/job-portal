@@ -20,9 +20,6 @@ const JobCard = ({ job, saveinit = false, isMyJob }) => {
     const result = saveJobFn({ jobId, saved });
     setSaved(!saved);
   }
-  useEffect(() => {
-    console.log("errors", errors);
-  }, [errors]);
 
   return (
     <Card className="bg-[#02021c] hover:shadow-gray-600">
@@ -30,7 +27,7 @@ const JobCard = ({ job, saveinit = false, isMyJob }) => {
         <CardTitle className="text-xl">{job.title}</CardTitle>
         <div className="flex  justify-between pt-2 pb-1 text-sm">
           {" "}
-          <img className="h-4" src={job.company.logo} />
+          <img className="h-4" src={job?.company?.logo} />
           <div className="flex justify-around ">
             <MapPin size={15} />
             <span className="h-4 text-xs">{job.location}</span>
@@ -38,7 +35,7 @@ const JobCard = ({ job, saveinit = false, isMyJob }) => {
         </div>
       </CardHeader>
       <CardContent className="text-sm">
-        <p>{job.description.substring(0, job.description.indexOf("."))}</p>
+        <p>{job.description?.substring(0, job.description.indexOf("."))}</p>
       </CardContent>
       <CardFooter>
         <div className="flex justify-between xl:justify-start items-center w-full gap-4">
